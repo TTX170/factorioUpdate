@@ -28,6 +28,6 @@ rm linux64
 mv factorio/* ./
 rmdir factorio
 #copies the relevant files across from the old version
-cp ../factorio_$prev/factorio/server-settings.json ./
+cp ../factorio_$prev/server-settings.json ./
 mkdir saves
-cp ../factorio_$prev/factorio/saves/beta.zip ./saves 
+cp ../factorio_$prev/saves/beta.zip ./saves 
