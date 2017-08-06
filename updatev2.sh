@@ -2,6 +2,7 @@
 #Checks the version numbers are correct
 echo "Factorio update script"
 Cont=0
+save=beta.zip
 until [ $Cont -eq 1 ];
 do
 echo 'Enter the version of Factorio you are upgarding from in x.x.x format'
@@ -30,4 +31,4 @@ rmdir factorio
 #copies the relevant files across from the old version
 cp ../factorio_$prev/server-settings.json ./
 mkdir saves
-cp ../factorio_$prev/saves/beta.zip ./saves 
+cp ../factorio_$prev/saves/$save ./saves 
