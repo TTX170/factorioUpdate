@@ -1,24 +1,25 @@
 #!/bin/sh
 #Checks the version numbers are correct
-echo "Factorio update script"
 Cont=0
 save=beta.zip
-until [ $Cont -eq 1 ];
-do
-echo 'Enter the version of Factorio you are upgarding from in x.x.x format'
-read prev
-echo 'Enter the version of Factorio you wish to download in x.x.x format'
-read version
-echo "I am going to upgrade from '$prev' to '$version' Is this correct? y or n"
-read correct
+prev=$1
+version=$2 
+#until [ $Cont -eq 1 ];
+#do
+#echo 'Enter the version of Factorio you are upgarding from in x.x.x format'
+#read prev
+#echo 'Enter the version of Factorio you wish to download in x.x.x format'
+#read version
+#echo "I am going to upgrade from '$prev' to '$version' Is this correct? y or n"
+#read correct
 
-if [ $correct = 'y' ];
-then
-	Cont=1
-else
-	echo "Script reset plase re-enter"
-fi
-done 
+#if [ $correct = 'y' ];
+#then
+	#Cont=1
+#else
+	#echo "Script reset plase re-enter"
+#fi
+#done 
 #makes a new directory for the new version and changes to it
 mkdir factorio_$version
 cd factorio_$version
