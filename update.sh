@@ -1,31 +1,27 @@
 #!/bin/sh
-#Checks the version numbers are correct
+#initialises the variables and gets the params
 Cont=0
 save=beta.zip
 prev=$1
 version=$2 
-#until [ $Cont -eq 1 ];
-#do
-#echo 'Enter the version of Factorio you are upgarding from in x.x.x format'
-#read prev
-#echo 'Enter the version of Factorio you wish to download in x.x.x format'
-#read version
-#echo "I am going to upgrade from '$prev' to '$version' Is this correct? y or n"
-#read correct
-
-#if [ $correct = 'y' ];
-#then
-	#Cont=1
-#else
-	#echo "Script reset plase re-enter"
-#fi
+#validates correct versions were passed
+echo "Im going to update from $prev to $version is that correct? y or n"
+read correct
+if [ $correct = 'y' ];
+then
+  echo "Updating..."
+  continue
+else
+  echo "Please try again"
+  exit
+fi
 #done 
 #makes a new directory for the new version and changes to it
 mkdir factorio_$version
 cd factorio_$version
 #gets the new version unzips and tidy's up
 wget https://www.factorio.com/get-download/$version/headless/linux64
-tar -xvf linux64
+tar -xf linux64
 rm linux64
 mv factorio/* ./
 rmdir factorio
@@ -33,3 +29,4 @@ rmdir factorio
 cp ../factorio_$prev/server-settings.json ./
 mkdir saves
 cp ../factorio_$prev/saves/$save ./saves 
+echo "Done!"
